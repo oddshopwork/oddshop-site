@@ -27,7 +27,7 @@ buildFuture = false
   disableSpecial1stPost = false
   disableScrollToTop = false
   comments = false
-  hidemeta = false
+  hidemeta = true
   hideSummary = false
   showtoc = true
   tocopen = false
@@ -42,7 +42,7 @@ Browse the catalog below or grab our latest release.
 
   [[params.socialIcons]]
     name = "github"
-    url = "https://github.com/oddshopworks1"
+    url = "https://github.com/oddshopwork"
 
   [[params.socialIcons]]
     name = "whop"
