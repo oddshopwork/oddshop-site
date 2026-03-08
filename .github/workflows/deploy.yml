@@ -1,0 +1,36 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: Copy PaperMod theme
+        run: |
+          git clone --branch v7.0 --depth 1 \
+            https://github.com/adityatelange/hugo-PaperMod themes/PaperMod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.123.7'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: oddshop-work
+          directory: public
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

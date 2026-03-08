@@ -1,0 +1,7 @@
+# Cloudflare Pages build config
+# In the Cloudflare dashboard set:
+#   Build command:     hugo
+#   Build output dir:  public
+#   Root directory:    / (or wherever this repo root is)
+# Environment variables to set in dashboard:
+#   HUGO_VERSION = 0.123.7
